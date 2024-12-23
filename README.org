@@ -1,12 +1,62 @@
 * blender_emacs
 
+Pour éditer des scripts blender dans emacs sur un mac.
+
+** Complétion API python de Blender dans emacs  
+
+*** Créer un environnement virtuel avec `virtualenvwrapper`
+
+Par exemple, dans votre dossier `home` personnel vous pouvez avoir un dossier caché `.virtualenvs` qui contient tout vos environnements virtuels que vous gérez avec [[https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html][virtualenvwrapper]]. Depuis le Terminal, vous créez un environnement virtuel `blender_env` dans ce dossier.
+
+#+begin_src shell
+workon
+mkvirtualenv blender_env
+#+end_src
+
+*** Ajouter la complétion pour l'API de blender dans cet environnement virtuel
+
+#+begin_src shell
+pip install fake-bpy-module-latest
+#+end_src
+
+*** Installer ipython dans cet environnement virtuel
+#+begin_src shell
+pip install ipython
+#+end_src
+
+*** Tester la complétion
+
+- Lancer emacs
+- Créer un fichier `sandbox.py`
+- À partir du menu `Virtual Envs`, activer l'environnement `blender_env`
+- Tester que la complétion fonctionne:
+
+  #+begin_src python
+import bpy
+print(bpy.    # une liste de propositions doit s'afficher
+  #+end_src
 
 
-** À placer dans /usr/local/bin/
+** Pourvoir lancer `emacs` et `emacsclient` depuis le Terminal 
 
-Un fichier `emacs` contenant:
 
-#+begin_src bash
+*** À placer dans `/usr/local/bin/`
+
+- Un fichier `emacs` contenant:
+
+#+begin_src shell
 #!/bin/sh
 /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
 #+end_src
+
+Rendre le fichier exécutable avec `chmod +x emacs`
+
+- Un fichier `emacsclient` contenant:
+
+
+#+begin_src shell
+#!/bin/sh
+/Applications/Emacs.app/Contents/MacOS/bin/emacsclient "$@"
+#+end_src
+
+Rendre le fichier exécutable avec `chmod +x emacsclient`

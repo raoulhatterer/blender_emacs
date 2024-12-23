@@ -2,7 +2,7 @@
 
 Objectif: éditer des scripts blender dans emacs sur un mac.
 
-** Complétion API python de Blender dans emacs  
+** 1. Complétion API python de Blender dans emacs  
 
 *** Créer un environnement virtuel avec =virtualenvwrapper=
 
@@ -39,7 +39,7 @@ print(bpy.    # une liste de propositions doit s'afficher
   #+end_src
 
 
-** Pourvoir lancer =emacs= et surtout =emacsclient= depuis le Terminal 
+** 2. Pourvoir lancer =emacs= et surtout =emacsclient= depuis le Terminal 
 
 
 *** À placer dans =/usr/local/bin/=
@@ -63,7 +63,7 @@ Rendre le fichier exécutable avec =chmod +x emacs=
 
 Rendre le fichier exécutable avec =chmod +x emacsclient=
 
-** 3. Configuration d'Emacs
+** 3. Démarrer automatiquement le serveur de Emacs
 
 
 Pour utiliser =emacsclient=, vous devez avoir lancé Emacs en mode serveur.
@@ -75,6 +75,6 @@ Vous pouvez démarrer le serveur dans Emacs avec la commande suivante à placer 
   (server-start))
 #+end_src
 
-Cela permet à =emacsclient= de se connecter à cette instance d'Emacs. Si =emacsclient= est appelé alors qu'Emacs est déjà en mode serveur, il ouvrira le fichier demandé dans la session existante, ce qui est beaucoup plus rapide et fluide que de démarrer une nouvelle instance d'Emacs à chaque fois.
+Cela permet à =emacsclient= lancé par blender pour éditer un script dans Emacs de se connecter à cette instance d'Emacs. Comme =emacsclient= est appelé alors qu'Emacs est déjà en mode serveur, il ouvrira le fichier demandé dans la session existante, ce qui est beaucoup plus rapide et fluide que de démarrer une nouvelle instance d'Emacs à chaque fois.
 
 

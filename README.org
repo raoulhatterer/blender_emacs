@@ -39,7 +39,7 @@ print(bpy.    # une liste de propositions doit s'afficher
   #+end_src
 
 
-** Pourvoir lancer =emacs= et =emacsclient= depuis le Terminal 
+** Pourvoir lancer =emacs= et surtout =emacsclient= depuis le Terminal 
 
 
 *** À placer dans =/usr/local/bin/=

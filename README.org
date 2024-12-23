@@ -1,12 +1,12 @@
-* blender_emacs
+* blender_emacs 
 
-Pour éditer des scripts blender dans emacs sur un mac.
+Objectif: éditer des scripts blender dans emacs sur un mac.
 
 ** Complétion API python de Blender dans emacs  
 
-*** Créer un environnement virtuel avec `virtualenvwrapper`
+*** Créer un environnement virtuel avec =virtualenvwrapper=
 
-Par exemple, dans votre dossier `home` personnel vous pouvez avoir un dossier caché `.virtualenvs` qui contient tout vos environnements virtuels que vous gérez avec [[https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html][virtualenvwrapper]]. Depuis le Terminal, vous créez un environnement virtuel `blender_env` dans ce dossier.
+Par exemple, dans votre dossier =home= personnel vous pouvez avoir un dossier caché =.virtualenvs= qui contient tout vos environnements virtuels que vous gérez avec [[https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html][virtualenvwrapper]]. Depuis le Terminal, vous créez un environnement virtuel =blender_env= dans ce dossier.
 
 #+begin_src shell
 workon
@@ -27,8 +27,8 @@ pip install ipython
 *** Tester la complétion
 
 - Lancer emacs
-- Créer un fichier `sandbox.py`
-- À partir du menu `Virtual Envs`, activer l'environnement `blender_env`
+- Créer un fichier =sandbox.py=
+- À partir du menu =Virtual Envs=, activer l'environnement =blender_env=
 - Tester que la complétion fonctionne:
 
   #+begin_src python
@@ -37,21 +37,21 @@ print(bpy.    # une liste de propositions doit s'afficher
   #+end_src
 
 
-** Pourvoir lancer `emacs` et `emacsclient` depuis le Terminal 
+** Pourvoir lancer =emacs= et =emacsclient= depuis le Terminal 
 
 
-*** À placer dans `/usr/local/bin/`
+*** À placer dans =/usr/local/bin/=
 
-- Un fichier `emacs` contenant:
+- Un fichier =emacs= contenant:
 
 #+begin_src shell
 #!/bin/sh
 /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
 #+end_src
 
-Rendre le fichier exécutable avec `chmod +x emacs`
+Rendre le fichier exécutable avec =chmod +x emacs=
 
-- Un fichier `emacsclient` contenant:
+- Un fichier =emacsclient= contenant:
 
 
 #+begin_src shell
@@ -59,4 +59,4 @@ Rendre le fichier exécutable avec `chmod +x emacs`
 /Applications/Emacs.app/Contents/MacOS/bin/emacsclient "$@"
 #+end_src
 
-Rendre le fichier exécutable avec `chmod +x emacsclient`
+Rendre le fichier exécutable avec =chmod +x emacsclient=

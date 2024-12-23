@@ -19,6 +19,8 @@ mkvirtualenv blender_env
 pip install fake-bpy-module-latest
 #+end_src
 
+source: https://github.com/nutti/fake-bpy-module
+
 *** Installer ipython dans cet environnement virtuel
 #+begin_src shell
 pip install ipython

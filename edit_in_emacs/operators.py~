@@ -1,0 +1,39 @@
+# operators.py
+
+import bpy
+import subprocess
+
+
+def is_text_editor_active(context):
+    """Vérifie si un fichier texte est ouvert dans l'éditeur de texte."""
+    return context.area.type == 'TEXT_EDITOR' and context.space_data.text is not None
+
+
+def open_in_emacs(self, context):
+    """Ouvre le fichier dans Emacs via emacsclient."""
+    text = context.space_data.text
+    if text:
+        file_path = bpy.path.abspath(text.filepath)
+        subprocess.Popen(["emacsclient", "-n", file_path])
+
+
+class EditInEmacsMenu(bpy.types.Operator):
+    """Opérateur pour ouvrir un fichier dans Emacs."""
+    bl_idname = "wm.edit_in_emacs"
+    bl_label = "Edit in Emacs"
+    
+    def execute(self, context):
+        open_in_emacs(self, context)
+        return {'FINISHED'}
+
+
+def draw_func(self, context):
+    """Affiche l'option 'Edit in Emacs' dans le menu contextuel de l'éditeur de texte."""
+    layout = self.layout
+
+    if is_text_editor_active(context):
+        # Si un fichier texte est ouvert, l'option est activée
+        layout.operator("wm.edit_in_emacs")
+    else:
+        # Sinon, l'option est grisée (inactive)
+        layout.operator("wm.edit_in_emacs", icon='ERROR').enabled = False

@@ -1,0 +1,27 @@
+# __init__.py
+
+bl_info = {
+    "name": "Edit in Emacs",
+    "description": "Edit Blender scripts in Emacs",
+    "author": "Votre Nom",
+    "version": (1, 0, 0),
+    "blender": (4, 2, 3),
+    "category": "Development",
+}
+
+import bpy
+from .operators import EditInEmacsMenu, draw_func
+
+
+def register():
+    bpy.utils.register_class(EditInEmacsMenu)
+    bpy.types.TEXT_HT_header.append(draw_func)
+
+
+def unregister():
+    bpy.utils.unregister_class(EditInEmacsMenu)
+    bpy.types.TEXT_HT_header.remove(draw_func)
+
+
+if __name__ == "__main__":
+    register()

@@ -2,7 +2,7 @@
 
 Objectif: éditer des scripts blender dans emacs sur un mac.
 
-** 1. Complétion API python de Blender dans emacs  
+** 1. Disposer de la complétion de l'/API python de Blender/ dans emacs  
 
 *** Créer un environnement virtuel avec =virtualenvwrapper=
 

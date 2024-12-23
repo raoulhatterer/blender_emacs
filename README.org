@@ -62,3 +62,19 @@ Rendre le fichier exécutable avec =chmod +x emacs=
 #+end_src
 
 Rendre le fichier exécutable avec =chmod +x emacsclient=
+
+** 3. Configuration d'Emacs
+
+
+Pour utiliser =emacsclient=, vous devez avoir lancé Emacs en mode serveur.
+Vous pouvez démarrer le serveur dans Emacs avec la commande suivante à placer dans le fichier d'initialisation  =~/.emacs.d/init.el= pour recevoir des connexions.
+
+#+begin_src elisp
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+#+end_src
+
+Cela permet à =emacsclient= de se connecter à cette instance d'Emacs. Si =emacsclient= est appelé alors qu'Emacs est déjà en mode serveur, il ouvrira le fichier demandé dans la session existante, ce qui est beaucoup plus rapide et fluide que de démarrer une nouvelle instance d'Emacs à chaque fois.
+
+

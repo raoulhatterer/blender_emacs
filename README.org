@@ -6,7 +6,7 @@ Objectif: éditer des scripts blender dans emacs sur un mac.
 
 *** Créer un environnement virtuel avec =virtualenvwrapper=
 
-Par exemple, dans votre dossier =home= personnel vous pouvez avoir un dossier caché =.virtualenvs= qui contient tout vos environnements virtuels que vous gérez avec [[https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html][virtualenvwrapper]]. Depuis le Terminal, vous créez un environnement virtuel =blender_env= dans ce dossier.
+Par exemple, dans votre dossier =home= personnel vous pouvez avoir un dossier caché =.virtualenvs= qui contient tous vos environnements virtuels que vous gérez avec [[https://virtualenvwrapper.readthedocs.io/en/latest/command_ref.html][virtualenvwrapper]]. Depuis le Terminal, vous créez un environnement virtuel =blender_env= dans ce dossier.
 
 #+begin_src shell
 workon

@@ -1,1 +1,12 @@
-# blender_emacs
+* blender_emacs
+
+
+
+** À placer dans /usr/local/bin/
+
+Un fichier `emacs` contenant:
+
+#+begin_src bash
+#!/bin/sh
+/Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+#+end_src

@@ -11,7 +11,7 @@ class EditInEmacsOperator(bpy.types.Operator):
 
     @classmethod
     def poll(cls, context):
-        # L'opérateur est actif uniquement s'il y a des textes disponibles
+        """Cette méthode est appelée par Blender avant d'afficher ou d'activer un opérateur dans l'interface utilisateur. Ici, l'opérateur est actif uniquement si len(bpy.data.texts) > 0, c'est-à-dire qu'il existe au moins un texte dans Blender."""
         return len(bpy.data.texts) > 0
 
     def execute(self, context):
@@ -21,11 +21,13 @@ class EditInEmacsOperator(bpy.types.Operator):
             self.report({'WARNING'}, "No text selected")
             return {'CANCELLED'}
 
-        # Get the file path of the text
-        file_path = bpy.path.abspath(text.filepath)
-        if not file_path:
-            self.report({'WARNING'}, "Text has no file path")
-            return {'CANCELLED'}
+        temp_dir = bpy.app.tempdir
+        file_path = os.path.join(temp_dir, f"blender_{text.name}.py")
+        with open(file_path, "w", encoding="utf-8") as temp_file:
+            temp_file.write(text.as_string())
+
+
+    
 
         # Commande pour ouvrir le fichier dans Emacs
         try:

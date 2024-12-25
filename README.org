@@ -78,3 +78,13 @@ Vous pouvez démarrer le serveur dans Emacs avec la commande suivante à placer 
 Cela permet à =emacsclient= lancé par blender pour éditer un script dans Emacs de se connecter à cette instance d'Emacs. Comme =emacsclient= est appelé alors qu'Emacs est déjà en mode serveur, il ouvrira le fichier demandé dans la session existante, ce qui est beaucoup plus rapide et fluide que de démarrer une nouvelle instance d'Emacs à chaque fois.
 
 
+** 4. Déterminer un port libre pouvant être utilisé pour établir un dialogue entre blender et emacs
+
+
+Pour éviter tout conflit avec d'autres applications, on va par exemple tester un port entre 49152 et 65535. Par exemple le port 50000:
+#+begin_src shell
+lsof -i :50000
+#+end_src
+
+Si la commande précédente retourne un processus, il va falloir utiliser un autre port.
+
